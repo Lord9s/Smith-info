@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Me Anything</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ask Me Anything!</h1>
+
+    <section id="ask-question">
+        <h2>Ask a Question</h2>
+        <form id="question-form">
+            <label for="question-text">Your Question:</label><br>
+            <textarea id="question-text" name="question-text" rows="4" cols="50" required></textarea><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+
+    <section id="questions-section">
+        <h2>Questions</h2>
+        <div id="questions-list">
+            <!-- Questions will be dynamically added here -->
+        </div>
+    </section>
+
+    <script>
+        // JavaScript code to handle form submission and display questions would go here.
+        // This would involve fetching data from a server (if you have one) or storing
+        // questions in local storage (for a simpler, client-side only version).  
+        //  Example (Local Storage -  Not recommended for production):
+
+        const questionForm = document.getElementById('question-form');
+        const questionsList = document.getElementById('questions-list');
+
+        questionForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const questionText = document.getElementById('question-text').value;
+
+            //Simple Local Storage (for demo purposes only!)
+            let questions = JSON.parse(localStorage.getItem('questions')) || [];
+            questions.push(questionText);
+            localStorage.setItem('questions', JSON.stringify(questions));
+
+            displayQuestions();
+        });
+
+        function displayQuestions() {
+            questionsList.innerHTML = ''; // Clear existing questions
+            let questions = JSON.parse(localStorage.getItem('questions')) || [];
+            questions.forEach(question => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.textContent = question;
+                questionsList.appendChild(questionDiv);
+            });
+        }
+
+        displayQuestions(); //Load questions on page load
+
+
+    </script>
+
+</body>
+</html>
