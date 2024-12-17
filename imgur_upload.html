@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Imgur Uploader</title>
+</head>
+<body>
+  <h1>Imgur Uploader</h1>
+  <p>This is a frontend-only example.  It requires a server-side component to handle uploads.</p>
+
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" id="fileInput" name="files[]" multiple accept="image/*,video/*">
+    <button type="submit">Upload</button>
+  </form>
+
+  <div id="status"></div>  <!-- Display upload status -->
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default form submission
+
+      // **This section would need to be replaced with AJAX code**
+      // **to send the files to a server-side script**
+
+      const files = document.getElementById('fileInput').files;
+      const formData = new FormData();
+      for (let i = 0; i < files.length; i++) {
+        formData.append('files[]', files[i]);
+      }
+
+      // Placeholder: Replace with your server-side upload script URL
+      const uploadUrl = '/upload'; // <-- THIS NEEDS A SERVER-SIDE SCRIPT
+
+      fetch(uploadUrl, {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('status').textContent = JSON.stringify(data); // Show server's response
+      })
+      .catch(error => {
+        document.getElementById('status').textContent = 'Error: ' + error;
+      });
+
+    });
+  </script>
+</body>
+</html>
