@@ -1,18 +1,15 @@
-
 // server.js
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-// Middleware to serve static files
-app.use(express.static('public'));
-
-// Simple route
-app.get('/', (req, res) => {
-    res.send('<h1>My Website is Alive!</h1>');
+app.listen(3000, () => {
+  console.log('Server started on port 3000');
 });
 
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.get('/', (req, res) => {
+  res.send('Hello from Express!');
+});
+
+app.post('/', (req, res) => {
+  res.send('Thanks for the POST request!');
 });
