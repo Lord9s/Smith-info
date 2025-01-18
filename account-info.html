@@ -1,16 +1,95 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Account Information</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #ff7e5f;
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        b {
+            color: #ff7e5f;
+        }
+        .button {
+            background-color: #ff7e5f;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            max-width: 200px;
+            text-align: center;
+        }
+        .button:hover {
+            background-color: #feb47b;
+        }
+    </style>
 </head>
 <body>
-  <h1>Account Information</h1>
-  <ul>
-    <li><b>Facebook Account Link:</b> https://www.facebook.com/jaydenSmith.1</li>
-    <li><b>Account Password:</b>junior Smith.2hello</li>
-    <li><b>Account Email/Number:</b> jaysmith@gmail.com</li>
-    <li><b>Account Name:</b>Smith Junior</li>
-  </ul>
+    <div class="container">
+        <h1>Account Information</h1>
+        <ul>
+            <li><b>Facebook Account Link:</b> <a href="https://www.facebook.com/jaydenSmith.1" target="_blank">https://www.facebook.com/jaydenSmith.1</a></li>
+            <li><b>Account Password:</b> lord.jay</li>
+            <li><b>Account Email/Number:</b> jaysmith@gmail.com</li>
+            <li><b>Account Name:</b> Smith Junior</li>
+        </ul>
+        <button class="button" onclick="alert('Account details copied to clipboard')">Copy Account Info</button>
+    </div>
+    <script>
+        document.querySelector('.button').addEventListener('click', function() {
+            const accountInfo = `
+                Facebook Account Link: https://www.facebook.com/jaydenSmith.1
+                Account Password: lord.jay
+                Account Email/Number: jaysmith@gmail.com
+                Account Name: Smith Junior
+            `;
+            navigator.clipboard.writeText(accountInfo).then(function() {
+                alert('Account details copied to clipboard');
+            }, function(err) {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    </script>
 </body>
 </html>
