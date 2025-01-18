@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #f06, #4a90e2);
+            color: #fff;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        main {
+            flex: 1;
+            padding: 20px;
+            width: 100%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            width: 100%;
+            text-align: center;
+            color: white;
+        }
+        h2 {
+            color: #fff;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #ddd;
+        }
+        .form-group input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            color: #333;
+        }
+        .button {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 150px;
+        }
+        .button:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .hidden {
+            display: none;
+        }
+        .info-block {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .info-block h3 {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Owner Information Form</h1>
+    </header>
+    <main>
+        <h2>Fill in the owner information below:</h2>
+        <form id="ownerForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" value="Jayden Smith">
+            </div>
+            <div class="form-group">
+                <label for="email">Gmail:</label>
+                <input type="email" id="email" value="jaydensmith01@gmail.com">
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" value="22">
+            </div>
+            <div class="form-group">
+                <label for="replit">Replit:</label>
+                <input type="text" id="replit" value="lordking2">
+            </div>
+            <div class="form-group">
+                <label for="github">GitHub:</label>
+                <input type="text" id="github" value="lordking2">
+            </div>
+            <div class="form-group">
+                <label for="instagram">Instagram:</label>
+                <input type="text" id="instagram" value="lordking9857">
+            </div>
+            <div class="form-group">
+                <label for="telegram">Telegram:</label>
+                <input type="text" id="telegram" value="@Jaydensmith">
+            </div>
+            <div class="form-group">
+                <label for="discord">Discord:</label>
+                <input type="text" id="discord" value="jayden smith">
+            </div>
+            <div class="form-group">
+                <label for="linkedin">LinkedIn:</label>
+                <input type="text" id="linkedin" value="Jayden Smith">
+            </div>
+            <div class="form-group">
+                <label for="facebook">Facebook:</label>
+                <input type="text" id="facebook" value="https://www.facebook.com/lordjaydenSmith.1">
+            </div>
+            <button type="button" class="button" onclick="showOwnerInfo()">Show Owner Info</button>
+        </form>
+
+        <div id="ownerInfo" class="hidden info-block">
+            <h3>Owner Information:</h3>
+            <p id="ownerDetails"></p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Lord9s. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showOwnerInfo() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var age = document.getElementById("age").value;
+            var replit = document.getElementById("replit").value;
+            var github = document.getElementById("github").value;
+            var instagram = document.getElementById("instagram").value;
+            var telegram = document.getElementById("telegram").value;
+            var discord = document.getElementById("discord").value;
+            var linkedin = document.getElementById("linkedin").value;
+            var facebook = document.getElementById("facebook").value;
+
+            var ownerDetails = `
+                <strong>Name:</strong> ${name} <br>
+                <strong>Gmail:</strong> ${email} <br>
+                <strong>Age:</strong> ${age} <br>
+                <strong>Replit:</strong> ${replit} <br>
+                <strong>GitHub:</strong> ${github} <br>
+                <strong>Instagram:</strong> ${instagram} <br>
+                <strong>Telegram:</strong> ${telegram} <br>
+                <strong>Discord:</strong> ${discord} <br>
+                <strong>LinkedIn:</strong> ${linkedin} <br>
+                <strong>Facebook:</strong> ${facebook} <br>
+            `;
+
+            document.getElementById("ownerDetails").innerHTML = ownerDetails;
+            document.getElementById("ownerInfo").classList.remove("hidden");
+        }
+    </script>
+</body>
+  </html>
