@@ -1,0 +1,19 @@
+name: Keep Repository Alive
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # This runs the workflow every 15 minutes
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Run a keep-alive script
+      run: |
+        echo "Keeping the repository alive..."
+        # Add any script or command here that needs to run periodically
