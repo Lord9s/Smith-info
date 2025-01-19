@@ -6,16 +6,42 @@
     <title>Ask Me Anything</title>
     <style>
         body {
-            font-family: sans-serif;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
         }
         section {
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 20px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .question {
             margin-bottom: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
@@ -32,7 +58,6 @@
         </form>
     </section>
 
-
     <section id="questions-section">
         <h2>Questions</h2>
         <div id="questions-list">
@@ -41,11 +66,6 @@
     </section>
 
     <script>
-        // JavaScript code to handle form submission and display questions would go here.
-        // This would involve fetching data from a server (if you have one) or storing
-        // questions in local storage (for a simpler, client-side only version).  
-        //  Example (Local Storage -  Not recommended for production):
-
         const questionForm = document.getElementById('question-form');
         const questionsList = document.getElementById('questions-list');
 
@@ -53,7 +73,6 @@
             event.preventDefault();
             const questionText = document.getElementById('question-text').value;
 
-            //Simple Local Storage (for demo purposes only!)
             let questions = JSON.parse(localStorage.getItem('questions')) || [];
             questions.push(questionText);
             localStorage.setItem('questions', JSON.stringify(questions));
@@ -62,7 +81,7 @@
         });
 
         function displayQuestions() {
-            questionsList.innerHTML = ''; // Clear existing questions
+            questionsList.innerHTML = '';
             let questions = JSON.parse(localStorage.getItem('questions')) || [];
             questions.forEach(question => {
                 const questionDiv = document.createElement('div');
@@ -72,9 +91,7 @@
             });
         }
 
-        displayQuestions(); //Load questions on page load
-
-
+        displayQuestions();
     </script>
 
 </body>
