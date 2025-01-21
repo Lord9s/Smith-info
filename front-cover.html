@@ -1,106 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Welcome!</title>
-<style>
-body {
-  margin: 0;
-  overflow: hidden; /* Hide scrollbars */
-  background-color: #f0f0f0; /* Light gray background */
-}
-
-.container {
-  width: 100%;
-  height: 100vh; /* Viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.img-container {
-  position: relative;
-  width: 60%; /* Adjust image size as needed */
-  max-width: 800px; /* Cap max width */
-}
-
-img {
-  width: 100%;
-  height: auto;
-  display: block; /* Prevents extra space below image */
-}
-
-.rain {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: 1; /* Ensure rain is on top of image */
-}
-
-.rain-drop {
-  position: absolute;
-  width: 2px;
-  height: 10px;
-  background-color: transparent;
-  border-radius: 1px;
-  animation: fall 5s linear infinite;
-}
-
-
-@keyframes fall {
-  0% {
-    top: -10px;
-    opacity: 0.5;
-    transform: translateX(0);
-  }
-  100% {
-    top: 100%;
-    opacity: 0;
-    transform: translateX(calc(random() * 50px - 25px)); /* Random horizontal movement */
-  }
-}
-
-/* Colors for the rain */
-.rain-drop:nth-child(1n) { border: 1px solid red; }
-.rain-drop:nth-child(2n) { border: 1px solid orange; }
-.rain-drop:nth-child(3n) { border: 1px solid yellow; }
-.rain-drop:nth-child(4n) { border: 1px solid green; }
-.rain-drop:nth-child(5n) { border: 1px solid blue; }
-.rain-drop:nth-child(6n) { border: 1px solid indigo; }
-.rain-drop:nth-child(7n) { border: 1px solid violet; }
-
-h1 {
-  font-size: 3em;
-  margin-top: 20px;
-  color: white;
-  text-shadow: 2px 2px 4px #000000; /* Add shadow for better readability */
-}
-
-</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A welcoming page with a beautiful rain animation.">
+<title>Welcome to My Website</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
   <div class="img-container">
-    <img src="https://i.imgur.com/dSRr1qb.jpeg" alt="Welcome Image">
-    <div class="rain">
-      <!-- Generate many rain drops -->
-      <script>
-        const numDrops = 200; // Adjust number of rain drops
-        const rainContainer = document.querySelector('.rain');
-        for (let i = 0; i < numDrops; i++) {
-          const drop = document.createElement('div');
-          drop.className = 'rain-drop';
-          drop.style.left = Math.random() * 100 + '%';
-          drop.style.animationDelay = Math.random() * 5 + 's'; // Random delay
-          rainContainer.appendChild(drop);
-        }
-      </script>
-    </div>
+    <img src="https://i.imgur.com/dSRr1qb.jpeg" alt="Welcome Image" loading="lazy">
+    <div class="rain"></div>
   </div>
   <h1>Welcome to My Website!</h1>
 </div>
+<script src="scripts.js"></script>
 </body>
 </html>
