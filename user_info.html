@@ -5,24 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Information</title>
     <style>
+        :root {
+            --background-color: #f4f4f4;
+            --text-color: #333;
+            --secondary-text-color: #555;
+            --info-background: white;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: var(--background-color);
             margin: 0;
             padding: 20px;
         }
         .info-section {
-            background: white;
+            background: var(--info-background);
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px var(--shadow-color);
+            transition: transform 0.2s;
+        }
+        .info-section:hover {
+            transform: scale(1.02);
         }
         h1 {
-            color: #333;
+            color: var(--text-color);
         }
         p {
             font-size: 18px;
-            color: #555;
+            color: var(--secondary-text-color);
+        }
+        .loading {
+            font-style: italic;
+            color: var(--secondary-text-color);
         }
     </style>
 </head>
@@ -30,17 +45,23 @@
 
     <div class="info-section">
         <h1>User Information</h1>
-        <p><strong>Battery Percentage:</strong> <span id="battery-percentage">Loading...</span></p>
-        <p><strong>Phone Name:</strong> <span id="phone-name">Loading...</span></p>
-        <p><strong>Location:</strong> <span id="location">Loading...</span></p>
-        <p><strong>Phone Number:</strong> <span id="phone-number">Loading...</span></p>
+        <p><strong>Battery Percentage:</strong> <span id="battery-percentage" class="loading">Loading...</span></p>
+        <p><strong>Phone Name:</strong> <span id="phone-name" class="loading">Loading...</span></p>
+        <p><strong>Location:</strong> <span id="location" class="loading">Loading...</span></p>
+        <p><strong>Phone Number:</strong> <span id="phone-number" class="loading">Loading...</span></p>
     </div>
 
     <script>
         // Function to get battery percentage
-        navigator.getBattery().then(function(battery) {
-            document.getElementById('battery-percentage').textContent = battery.level * 100 + '%';
-        });
+        async function getBatteryPercentage() {
+            try {
+                const battery = await navigator.getBattery();
+                document.getElementById('battery-percentage').textContent = battery.level * 100 + '%';
+            } catch (error) {
+                document.getElementById('battery-percentage').textContent = "Unable to retrieve battery information.";
+            }
+        }
+        getBatteryPercentage();
 
         // Function to get phone name (simulated)
         function getPhoneName() {
