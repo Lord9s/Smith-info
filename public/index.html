@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smith Info - The Best Web Info for 2025</title>
+    <title>Smith-Info</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,20 +14,13 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
-            background-size: 400% 400%;
-            animation: rainbow 10s ease infinite;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             color: #343a40;
-        }
-        @keyframes rainbow {
-            0%{background-position:0% 50%}
-            50%{background-position:100% 50%}
-            100%{background-position:0% 50%}
         }
         h1 {
             font-size: 3rem;
@@ -53,36 +47,17 @@
             border-radius: 4px;
             text-decoration: none;
             transition: background-color 0.3s ease;
-            margin: 5px;
         }
         .button:hover {
             background-color: #0056b3;
-        }
-        .file-list {
-            text-align: left;
-            margin-top: 2rem;
-        }
-        .file-list li {
-            margin-bottom: 0.5rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Smith Info!</h1>
-        <p>This website is dedicated to providing comprehensive information.</p>
-        <ul class="file-list">
-            <li><a href="registration_login.html" class="button">Registration/Login Page</a> - This page allows users to register and log in.</li>
-            <!-- Add more files here as needed -->
-        </ul>
+        <h1>Welcome to My Website!</h1>
+        <p>This website is alive and running!</p>
+        <a href="#more-info" class="button">Learn More</a>
     </div>
-
-    <script>
-        document.querySelectorAll('.button').forEach(button => {
-            button.addEventListener('click', function() {
-                alert(`Navigating to the ${this.textContent.split(' ')[0]} page.`);
-            });
-        });
-    </script>
 </body>
 </html>
