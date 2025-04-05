@@ -43,6 +43,23 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
+        .links-container {
+            margin-top: 20px;
+        }
+        .links-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .links-container li {
+            margin-bottom: 10px;
+        }
+        .links-container a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .links-container a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +81,20 @@
             <!-- Questions will be dynamically added here -->
         </div>
     </section>
+
+    <div class="links-container">
+        <h2>Project Files</h2>
+        <ul>
+            <li><a href="ownerinfo.html">Owner Information</a></li>
+            <li><a href="imgur_upload.html">Imgur Uploader</a></li>
+            <li><a href="public/index.html">Index</a></li>
+            <li><a href="account-info.html">Account Information</a></li>
+            <li><a href="public/registration_login.html">Registration and Login</a></li>
+            <li><a href="autobot_info.html">Autobot Info</a></li>
+            <li><a href="user_info.html">User Information</a></li>
+            <li><a href="front-cover.html">Front Cover</a></li>
+        </ul>
+    </div>
 
     <script>
         const questionForm = document.getElementById('question-form');
